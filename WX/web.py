@@ -13,4 +13,4 @@ async def get_usr_name(user_id):
         print(f"User 1: {name1} | User 2: {name2}")
         
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run( main())
