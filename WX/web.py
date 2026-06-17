@@ -1,6 +1,5 @@
-from ast import main
 import asyncio
-#import httpx
+import httpx
 
 async def get_usr_name(user_id):
     url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
