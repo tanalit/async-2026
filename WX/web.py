@@ -4,13 +4,13 @@ import httpx
 async def get_usr_name(user_id):
     url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
     
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=10) as client:
         response = await client.get(url)
         return response.json()["name"]
     
-    async def main():
+async def main():
         name1, name2 = await asyncio.gather(get_usr_name(1), get_usr_name(2))
         print(f"User 1: {name1} | User 2: {name2}")
         
 if __name__ == "__main__":
-    asyncio.run( main())
+    asyncio.run(main())
