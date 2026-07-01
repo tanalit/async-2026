@@ -2,13 +2,13 @@ import asyncio
 from time import ctime, time
 
 # ฟังก์ชันแสดงผลสำหรับงานแต่ละอย่าง
-async def handle_customer(customer):
+async def greet_diners(customer):
     # 1. ช่วง Greeting (เรียงลำดับ)
     print(f"{ctime()} Greeting for {customer}...")
     await asyncio.sleep(1) # สมมติเวลาตามภาพ
     print(f"{ctime()} Greeting for {customer}...Done!")
 
-async def task_workflow(customer):
+async def customer_private_workflow(customer):
     # 2. ช่วงงานแยก (Tasks)
     print(f"{ctime()} [{customer}] Taking Order ...")
     await asyncio.sleep(1)
@@ -30,12 +30,12 @@ async def main():
     
     # รัน Greeting ทีละคนตามภาพ
     for customer in customers:
-        await handle_customer(customer)
+        await greet_diners(customer)
     
     print(f"\n{ctime()} --- All customers greeted. Scheduling independent Async Tasks! ---\n")
     
     # รัน Task ของลูกค้าแต่ละคนแบบพร้อมกัน (Concurrent)
-    tasks = [asyncio.create_task(task_workflow(c)) for c in customers]
+    tasks = [asyncio.create_task(customer_private_workflow(c)) for c in customers]
     await asyncio.gather(*tasks)
     
     print(f"\n{ctime()} Finished Entire Restaurant Operation in {time() - start_time:.2f} seconds.")
