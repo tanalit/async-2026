@@ -4,9 +4,9 @@ from time import ctime, time
 # ฟังก์ชันแสดงผลสำหรับงานแต่ละอย่าง
 async def greet_diners(customer):
     # 1. ช่วง Greeting (เรียงลำดับ)
-    print(f"{ctime()} Greeting for {customer}...")
+    print(f"{ctime()} Greeting for {customer} ...")
     await asyncio.sleep(1) # สมมติเวลาตามภาพ
-    print(f"{ctime()} Greeting for {customer}...Done!")
+    print(f"{ctime()} Greeting for {customer} ...Done!")
 
 async def customer_private_workflow(customer):
     # 2. ช่วงงานแยก (Tasks)
