@@ -26,7 +26,7 @@ async def customer_private_workflow(customer):
 
 async def main():
     start_time = time()
-    customers = ["A", "B", "C"]
+    customers = ["Task-A", "Task-B", "Task-C"]
     
     # รัน Greeting ทีละคนตามภาพ
     for customer in customers:
